@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>My Places2.kml</name>
+		<Placemark>
+			<name>test path</name>
+			<styleUrl>#inline1</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-100.4199967469523,41.69520430605736,0 -98.93682817162176,39.92574060725103,0 -99.66968507796977,39.1526243562555,0 -98.89702056317654,38.3377319569092,0 -98.32608924446193,37.70497382707887,0 -100.3396939248576,37.26573627166461,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

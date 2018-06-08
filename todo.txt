@@ -1,0 +1,19 @@
+1-get the output values from the arinc data
+2-copy them into local file 
+3-plot onto google earth - link to local kmz file you continously update
+
+stretch goal change colors when beam changes
+
+write the full numbers for coordinates and paste and 
+make it work in routes
+
+do the file write so it takes the original base file
+	adds the numbers
+	writes the last bit
+
+	make sure that works in google earth
+
+stretch goal
+get it to check the timestamp and if it's increased by
+	a minute, start a new path with a new color.
+	randomize from an array of color names
