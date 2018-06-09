@@ -17,3 +17,7 @@ stretch goal
 get it to check the timestamp and if it's increased by
 	a minute, start a new path with a new color.
 	randomize from an array of color names
+
+
+choices are manually delete points each time or have it auto delete but if you pause it and restart it
+during a flight it will wipe everything out
