@@ -18,10 +18,14 @@ def write_kml
 	points_file = File.open("points.txt")
 	points = points_file.readline
 	points_file.close
-	binding.pry
+	# binding.pry
 	file = File.open("final.kml", "a")
-		# write points with proper tabbing
-		# write the last few lines
+		file.puts "#{points}\n"
+		file.puts "\t\t\t</coordinates>"
+		file.puts "\t\t</LineString>"
+		file.puts "\t</Placemark>"
+		file.puts "</Document>"
+		file.puts "</kml>"
 	file.close
 end
 
@@ -37,7 +41,7 @@ Net::SSH.start('192.168.254.27', 'adminuser', password: 'adminuser') do |ssh|
 	end
 	
 	# final change this to a loop, change the points and altitude call for utstat -I | greps are the same
-	1.times do 
+	50.times do 
 		points = ssh.exec! 'cat Desktop/arinc_data.txt | grep ppos_lat'
 		altitude_raw = ssh.exec! 'cat Desktop/inertial_altitude.txt | grep inertial_altitude'
 		# assign lat, long, and altitude

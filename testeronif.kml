@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
-	<name>test3.kml</name>
-	<Style id="inline">
+	<name>testeronif.kml</name>
+	<Style id="inline0">
 		<LineStyle>
 			<color>ffffff00</color>
 			<width>4</width>
@@ -11,10 +11,10 @@
 			<fill>0</fill>
 		</PolyStyle>
 	</Style>
-	<Style id="inline0">
+	<Style id="inline">
 		<LineStyle>
-			<color>ff0000ff</color>
-			<width>2</width>
+			<color>ffffff00</color>
+			<width>4</width>
 		</LineStyle>
 		<PolyStyle>
 			<fill>0</fill>
@@ -36,3 +36,9 @@
 		<LineString>
 			<tessellate>1</tessellate>
 			<coordinates>
+				-123.8306792185157,36.82505458410399,0 -123.4364606151617,34.96958144422324,0 -123.3559371761417,34.60927120520432,0 -124.2463237952884,35.052426387651,0 -124.4977823080646,35.65892694825222,0 -123.6067617480069,35.87845158154499,0 
+			</coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>
