@@ -13,8 +13,8 @@
 	</Style>
 	<Style id="inline0">
 		<LineStyle>
-			<color>ff0000ff</color>
-			<width>2</width>
+			<color>ffffff00</color>
+			<width>2.5</width>
 		</LineStyle>
 		<PolyStyle>
 			<fill>0</fill>
