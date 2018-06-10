@@ -1,6 +1,8 @@
 require 'net/ssh'
+require 'pry-byebug'
 
 def write_points_txt(longitude, latitude, altitude)
+	puts "Longitude is #{longitude} - Latitude is #{latitude} - altitude is #{altitude} meters"
 	points = File.open("points.txt", 'a') 
 		points.write " " + latitude  + ","
 		points.write longitude + ","
@@ -22,6 +24,7 @@ def write_kml
 		file.puts "</Document>"
 		file.puts "</kml>"
 	file.close
+	puts "final.kml updated"
 end
 
 Net::SSH.start('192.168.254.27', 'adminuser', password: 'adminuser') do |ssh|
@@ -34,7 +37,6 @@ Net::SSH.start('192.168.254.27', 'adminuser', password: 'adminuser') do |ssh|
 			points = File.open("points.txt", 'w')
 		end
 	end
-	
 	# final change this to a loop, change the points and altitude call for utstat -I | greps are the same
 	loop do
 		points = ssh.exec! 'cat Desktop/arinc_data.txt | grep ppos_lat'

@@ -35,4 +35,5 @@
 		<styleUrl>#inline1</styleUrl>
 		<LineString>
 			<tessellate>1</tessellate>
+			<altitudeMode>relativeToGround</altitudeMode>
 			<coordinates>

@@ -1,0 +1,18 @@
+Stretch goals
+
+- Create a new path when changing beams - have it randomly select color for that path from array shuffle
+- Stop the path if not talking to satellite, start a new one if satellite picks up again
+- 
+
+explanation
+- how google earth gets the file
+- the structure of the kml file we edit
+- the points file
+- the base file and the final kml
+- grabbing the data, parsing it, saving it
+- user input
+
+potential issues
+- the parsing is off because of new line character, or some other thing i missed from the picture and it doesn't grab the right coordinate
+- credentials are off
+- show binding.pry
