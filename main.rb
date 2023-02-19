@@ -1,4 +1,5 @@
-require 'net/ssh'
+require 'net/http'
+require 'json'
 require 'pry-byebug'
 
 def write_points_txt(longitude, latitude, altitude)
@@ -8,7 +9,7 @@ def write_points_txt(longitude, latitude, altitude)
 		points.write longitude + ","
 		points.write altitude
 		points.close
-	sleep(5)
+	sleep(1)
 end
 
 def write_kml
@@ -27,30 +28,28 @@ def write_kml
 	puts "final.kml updated"
 end
 
-Net::SSH.start('192.168.254.27', 'adminuser', password: 'adminuser') do |ssh|
-	# decide if you want to start with a fresh or keep old points
-	input = ''
-	until input == 'y' || input == 'n' do 
-		puts "Do you want to continue your previous path?(y/n)"
-		input = gets.chomp
-		if input == 'n'
-			points = File.open("points.txt", 'w')
-		end
-	end
-	# final change this to a loop, change the points and altitude call for utstat -I | greps are the same
+def get_aircraft_data
+	# python api call to http://192.168.1.69:5001/AllAircraftPositions
+	url 			= 'http://192.168.1.69:5001/AllAircraftPositions'
+	uri 			= URI(url)
+	response 		= Net::HTTP.get(uri)
+	parsed_result = JSON.parse(response)
+end
+
+
+def run
 	loop do
-		points = ssh.exec! 'cat Desktop/arinc_data.txt | grep ppos_lat'
-		altitude_raw = ssh.exec! 'cat Desktop/inertial_altitude.txt | grep inertial_altitude'
-		# assign lat, long, and altitude
-		altitude_feet = altitude_raw.split(" ")[-1].to_i
-		#convert to meters for google earth
+		aircraft_raw 	=  get_aircraft_data()
+		altitude_feet 	= aircraft_raw[0]["altitude"].to_i
 		altitude_meters = (altitude_feet * 0.3048).to_i
-		latitude = points.split(" ")[2].to_s
-		longitude = points.split(" ")[-1].to_s 
-		write_points_txt(latitude, longitude, altitude_meters)
+		latitude = aircraft_raw[0]["new_lat"].round(4).to_s
+		longitude = aircraft_raw[0]["new_long"].round(4).to_s
+		write_points_txt(longitude, latitude, altitude_meters)
 		write_kml
 	end
 end
+
+run
 
 
 
